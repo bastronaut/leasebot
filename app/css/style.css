@@ -1,0 +1,245 @@
+/*
+   http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+
+/* HTML5 display-role reset for older browsers */
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+
+/* end css reset */
+
+
+/*
+
+right chatmessages, borders: #d6d4d5
+deloitte green: #6eb744;
+text color:#3d3b3c
+lightblue: #0e9ed3
+padding-left/right: 26px
+padding-top in typscherm: 55px
+padding-top textbericht: 28px;
+padding-bottom textbericht: 40px;
+padding-leftright textberifht: 25px;
+*/
+
+html, body, .wrapper {
+    height: 100%;
+}
+
+p, a, input {
+    font-family: Helvetica;
+    line-height: 1.5;
+}
+
+.header {
+    text-align: center;
+    border-bottom: 1px solid #d6d4d5;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: white;
+    z-index: 2;
+}
+
+.header img {
+    padding: 3px;
+}
+
+input {
+  border: none;
+  padding: 40px 25px;
+}
+
+/*
+######################
+Start Content
+######################
+ */
+
+.wrapper {
+    height: 100%;
+    width: 100%;
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.content {
+    padding: 85px 20px 100px 20px;
+}
+
+.message-body {
+    margin-right: 50px;
+    margin-left: 50px;
+}
+
+.message {
+    padding: 15px;
+}
+
+.avatar-img {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    position: relative;
+    bottom: 5px;
+}
+
+.message-options {
+    text-align: center;
+}
+
+.option {
+  border-bottom: 1px solid #d6d4d5;
+  padding: 5px;
+}
+
+.message-options a {
+  color: #0e9ed3;
+  /*font-weight: bold;*/
+}
+
+.message-arrow {
+  height: 50px;
+}
+
+/*
+######################
+Left styling
+######################
+ */
+
+.left .message {
+    background-color: #d6d4d5;
+    border: 1px solid #d6d4d5;
+}
+
+.left .message p {
+    color: #3d3b3c
+}
+
+.left .message-options {
+  border: 1px solid #d6d4d5;
+  border-width: 1px 1px 0px 1px;
+}
+
+.left .avatar img {
+    border: 1px solid #07a3e0;
+}
+
+.left .message-arrow {
+  float: right;
+}
+
+.left .message-footer {
+  width: 215px;
+}
+
+/*
+ ######################
+ Right styling
+ ######################
+  */
+.right .message {
+    background-color: #6eb744;
+    border: 1px solid #6eb744;
+}
+
+.right .message p {
+    color: #fff
+}
+
+.right .message-options {
+  border: 1px solid #6eb744;
+  border-width: 1px 1px 0px 1px;
+}
+
+.right .avatar {
+  overflow: auto;
+}
+
+.right .message-footer {
+  text-align: right;
+}
+
+.right .message-arrow {
+  margin-right: 10px;
+}
+
+.right .message-footer {
+  width: 100%;
+}
+
+
+/*
+######################
+Start Footer
+######################
+ */
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    border-top: 1px solid #d6d4d5;
+    background-color: white;
+    width: 100%;
+    max-width: 450px;
+}
+
+.footer-wrapper {
+  width: 100%;
+}
+
+.inserttext {
+    display: inline-block;
+    width: 60%;
+}
+
+.inserttexticons {
+    display: inline-block;
+    /*width: 50px;*/
+    float: right;
+    padding-top: 32px;
+}
+
+.icon {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    margin-bottom: 15px;
+    /*transition: .5s all;*/
+    display: inline-block;
+    background-color: #000;
+    color: white;
+}
+
+.sendicon {
+  padding-right: 25px;
+}
+
+.inputmessage {
+  width: 100%;
+}
