@@ -1,11 +1,13 @@
 import styles from './index.scss';
-import React from 'react';
+import React, {Component} from 'react';
+import Header from './components/Header'
 
-export default class App extends React.Component {
+
+export default class App extends Component {
   render() {
     return (
       <div>
-        
+        <Header />
       </div>
     )
   }
