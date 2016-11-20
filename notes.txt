@@ -1,0 +1,150 @@
+notes on ES6 and newly acquired react facts
+
+es6 destructuring:
+
+var foo = {
+  bar: 1,
+  baz: 2
+}
+
+instead of:
+
+var bar = foo.bar; var baz = foo.baz; we can use destructuring:
+var { bar, baz } = foo;
+
+
+can also be used with arrays:
+
+var tenses = ["me", "you", "he"];
+var [ firstPerson, secondPerson, ..] = tenses;
+
+useful for Promise.all([ promise1, promise2]).then(function([results1, results2]) {
+  // results1 and results2 now available through destructuring
+})
+
+
+Can also use destructuring in method signatures
+
+
+block scoping:
+
+using let keyword, you can define variables within a block. Ex, if creates a block scope,
+and we do not want to have variables leak. With var, it will:
+
+if (true) {
+  var a = 5;
+}
+
+console.log(a) // will be 5
+
+What happens is that var a is hoisted to the top:
+
+var a;
+if (true) {
+  a = 5;
+}
+
+With block scoping, we can prevent this.
+
+// shortened loop 10 times
+for (10) {
+  let a = 5;
+}
+
+console.log(a); // nope
+In ES 6, let is the new var.
+
+## Const
+const is same as let in that its block scoped.
+But, constants cannot be overwritten.
+
+const foo = 1;
+
+You can still change objects, but probably not a good idea
+const bar = { a: 1 }
+bar.a = 2 // this works, but probably dont do it.
+
+Probably a good idea to use constants for everything.
+
+##################
+ES6 class syntax:
+
+class Parent {
+  age = 30;
+
+  constructor() {
+
+  }
+
+  static foo() {
+
+  }
+
+  bar() {
+
+  }
+}
+
+var parent = new Parent();
+parent.foo(); // will work
+parent.age // 30, fields will work too
+
+Old syntax:
+
+function Parent {
+  // this is the constructtor
+}
+
+Parent.prototype.foo() = function() {
+
+}
+
+Parent.prototype.bar() = function() {
+
+}
+
+
+You can also extend these:
+
+class Child extends Parent {
+  constructor () {
+    super() // calls the constructor method of the parent
+  }
+
+  baz() {
+    // its own method
+  }
+}
+
+var child = new Child();
+child.baz() // works
+child.bar() // works from parent
+child.foo() // does not work, static function
+
+
+###############
+Generator functions / arrow functions
+
+
+var foo = function(a, b) {
+    return a + b;
+}
+
+var foo = ( a, b ) => {
+  return a + b;
+}
+
+
+This is mostly valuable when passing functions as function arguments (e.g. callbacks):
+
+do.something(function(a, b) { return a + b;});
+becomes:
+do.something((a, b) => { return a + b;});
+
+implicit returns, works only for 1 liners, you can dorp the curly braces
+
+do.something((a, b) => return a + b);
+
+If there's only 1 argument:
+
+do.something(a => return a++);
