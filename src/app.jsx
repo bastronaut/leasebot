@@ -9,6 +9,12 @@ export default class App extends Component {
       <div>
         <Header />
       </div>
+      <div className="wrapper">
+        <div className="content">
+            messages
+        </div>
+        <Footer />
+      </div>
     )
   }
 }
