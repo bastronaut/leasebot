@@ -1,7 +1,8 @@
 import styles from './index.scss';
 import React, {Component} from 'react';
-import Header from './components/Header'
-
+import Header from './components/Header';
+import Composer from './components/Composer';
+import Messages from './components/Messages';
 
 export default class App extends Component {
 	render() {
@@ -9,10 +10,8 @@ export default class App extends Component {
 			<div>
 				<Header/>
 				<div className="wrapper">
-					<div className="content">
-						messages
-					</div>
-					<Footer/>
+          <Messages/>
+					<Composer/>
 				</div>
 			</div>
 		)
