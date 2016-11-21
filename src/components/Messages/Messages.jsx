@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import MessageItem from './components/MessageItem';
+import MessageItem from '../MessageItem';
 
 export default class Messages extends Component {
   render() {
