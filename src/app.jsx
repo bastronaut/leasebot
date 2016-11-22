@@ -10,8 +10,10 @@ export default class App extends Component {
 			<div>
 				<Header/>
 				<div className="wrapper">
-          <Messages/>
-					<Composer/>
+					<div className="content">
+	          <Messages/>
+						<Composer/>
+					</div>
 				</div>
 			</div>
 		)
