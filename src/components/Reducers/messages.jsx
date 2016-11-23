@@ -1,30 +1,28 @@
 const message = (state, action) => {
   switch (action.type) {
     case 'ADD_MESSAGE':
-      return {
-        nr: action.nr,
-        text: action.text
-      };
+      return [...state.messages,
+        {
+          nr: state.messages.length + 1,
+          text: action.text,
+          timestamp: action.timestamp,
+          isSending: false
+        }
+      )
     default:
       return state;
   }
 }
 
-const messages = (state = [], action) => {
+const messages = (state, action) => {
   switch (action.type) {
     case 'ADD_MESSAGE':
-      return [
-        ...state,
-        message(undefined, action)
-      ];
-    case 'CLICK_SOMETHING':
-      // TODO
-      return '';
+      return Object.assign({}, state,
+        [...state.messages, message(state, action)])
     default:
       return state;
   }
 }
-
 
 
 
