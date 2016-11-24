@@ -1,20 +1,15 @@
-import styles from './index.scss';
 import React, {Component} from 'react';
-import Header from './components/Header';
-import Composer from './components/Composer';
-import Messages from './components/Messages';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import { combineReducers } from 'redux';
+import undoable, { distinctState } from 'redux-undo';
+
 
 export default class App extends Component {
 	render() {
 		return (
 			<div>
-				<Header/>
-				<div className="wrapper">
-					<div className="content">
-	          <Messages/>
-						<Composer/>
-					</div>
-				</div>
+				<p>hi there</p>
 			</div>
 		)
 	}

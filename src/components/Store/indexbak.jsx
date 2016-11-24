@@ -22,28 +22,40 @@ store.subscribe(() => console.log(store.getState()))
       text: 'blabla numero 1',
       sender: user,
       timestamp: '10:30',
-      isSending: false
+      isSending: false,
+      hasAction: false,
+      action: '',
+      actionId: ''
     },
     {
       nr: 2,
       text: 'certainly nr 2',
       sender: bot,
       timestamp: '10:31',
-      isSending: false
+      isSending: false,
+      hasAction: false,
+      action: '',
+      actionId: ''
     },
     {
       nr: 3,
       text: 'alright nr 3',
       sender: user,
       timestamp: '10:32',
-      isSending: false
+      isSending: false,
+      hasAction: false,
+      action: '',
+      actionId: ''
     },
     {
       nr: 4,
       text: 'ok ok ok nr 4',
       sender: bot,
       timestamp: '10:33',
-      isSending: false
+      isSending: false,
+      hasAction: false,
+      action: '',
+      actionId: ''
     },
     ,
     {
@@ -51,7 +63,10 @@ store.subscribe(() => console.log(store.getState()))
       text: 'sending ... 5',
       sender: bot,
       timestamp: '10:34',
-      isSending: true
+      isSending: true,
+      hasAction: false,
+      action: '',
+      actionId: ''
     }
   ]
 }
