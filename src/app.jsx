@@ -5,6 +5,7 @@ import Header from './components/Header';
 import Messages from './components/Messages';
 import Composer from './components/Composer';
 import s from './assets/styles/style.css';
+import './assets/styles/style-desktop.css';
 
 class App extends Component {
 	static propTypes = {
@@ -17,13 +18,13 @@ class App extends Component {
 
 	render() {
 		return (
-			<div>
+			<div id="approot">
 				<Header/>
-				<div className={s.wrapper}>
-					<div className={s.content}>
+				<div className="wrapper">
+					<div className="content">
 							<Messages/>
-							<Composer/>
 					</div>
+							<Composer/>
 				</div>
 			</div>
 		)

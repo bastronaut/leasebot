@@ -45,7 +45,7 @@ padding-bottom textbericht: 40px;
 padding-leftright textberifht: 25px;
 */
 
-html, body, .wrapper {
+html, body, .wrapper, #app, #approot {
     height: 100%;
 }
 
