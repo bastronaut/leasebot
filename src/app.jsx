@@ -1,14 +1,18 @@
-import React, {Component} from 'react';
+import React, { Component, PropTypes } from 'react'
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { combineReducers } from 'redux';
 import undoable, { distinctState } from 'redux-undo';
 
 
-export default class App extends Component {
-	componentWillMount() {
-		// http://stackoverflow.com/questions/34570758/why-do-we-need-middleware-for-async-flow-in-redux
-	},
+class App extends Component {
+	static propTypes = {
+		dispatch: PropTypes.func.isRequired
+	}
+
+	componentDidMount() {
+		const { dispatch } = this.props;
+	}
 
 	render() {
 		return (
@@ -17,4 +21,5 @@ export default class App extends Component {
 			</div>
 		)
 	}
+
 }

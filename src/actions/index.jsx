@@ -14,6 +14,7 @@
 
 
 export const SEND_MESSAGE = 'SEND_MESSAGE';
+export const RECEIVE_MESSAGES = 'RECEIVE_MESSAGE';
 
 export function sendMessage(message) {
   return {
