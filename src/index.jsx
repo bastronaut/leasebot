@@ -7,7 +7,7 @@ import createLogger from 'redux-logger'
 import {Provider} from 'react-redux'
 import App from './app.jsx';
 import reducer from './reducers'
-import './assets/styles/style.css';
+
 
 const middleware = [thunk]
 const store = createStore(reducer, applyMiddleware(...middleware))
@@ -18,6 +18,8 @@ render(
 		<App/>
 	</Provider>
 </AppContainer>, document.getElementById("app"));
+
+
 
 if (module.hot) {
 	module.hot.accept('./app.jsx', () => {

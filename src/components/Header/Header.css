@@ -1,0 +1,13 @@
+.header {
+    text-align: center;
+    border-bottom: 1px solid #d6d4d5;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: white;
+    z-index: 2;
+}
+
+.header img {
+    padding: 3px;
+}

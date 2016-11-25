@@ -8,44 +8,50 @@ const HOST = process.env.HOST || "127.0.0.1";
 const PORT = process.env.PORT || "8888";
 
 // global css
-loaders.push({
-	test: /\.css$/,
-	exclude: /[\/\\]src[\/\\]/,
-	loaders: [
-		'style?sourceMap',
-		'css'
-	]
-});
+// loaders.push({
+// 	test: /\.css$/,
+// 	exclude: /[\/\\]src[\/\\]/,
+// 	loaders: [
+// 		'style?sourceMap',
+// 		'css'
+// 	]
+// });
 // local scss modules
-loaders.push({
-	test: /\.scss$/,
-	exclude: /[\/\\](node_modules|bower_components|public)[\/\\]/,
-	loaders: [
-		'style?sourceMap',
-		'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]',
-		'postcss',
-		'sass'
-	]
-});
+// loaders.push({
+// 	test: /\.scss$/,
+// 	exclude: /[\/\\](node_modules|bower_components|public)[\/\\]/,
+// 	loaders: [
+// 		'style?sourceMap',
+// 		'css?modules&importLoaders=1&localIdentName=[path]_[name]_[local]_[hash:base64:5]',
+// 		'postcss',
+// 		'sass'
+// 	]
+// });
 
 // local css modules
-loaders.push({
-	test: /\.css$/,
-	exclude: /[\/\\](node_modules|bower_components|public)[\/\\]/,
-	loaders: [
-		'style?sourceMap',
-		'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]'
-	]
-});
+// loaders.push({
+// 	test: /\.css$/,
+// 	exclude: /[\/\\](node_modules|bower_components|public)[\/\\]/,
+// 	loaders: [
+// 		'style?sourceMap',
+// 		'css?modules&importLoaders=1&localIdentName=[name]_[local]_[hash:base64:5]'
+// 	]
+// });
 
 
 // img modules // hack
 loaders.push({
 	test: /\.(ico|jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2)(\?.*)?$/,
-	loader: 'file-loader',
+	loader: 'url-loader',
 	query: {
+		name: 'static/media/[name].[hash:8].[ext]',
 	}
 });
+
+loaders.push({
+	test: /\.css$/,
+	loader: ExtractTextPlugin.extract("style-loader", "css-loader")
+})
 
 module.exports = {
 	entry: [
@@ -82,5 +88,8 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			template: './src/template.html'
 		}),
+		new ExtractTextPlugin("style.css", {
+	      allChunks: true
+	  })
 	]
 };

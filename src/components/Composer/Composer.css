@@ -1,0 +1,44 @@
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    border-top: 1px solid #d6d4d5;
+    background-color: white;
+    width: 100%;
+    max-width: 450px;
+}
+
+.footerwrapper {
+  width: 100%;
+}
+
+.inserttext {
+    display: inline-block;
+    width: 60%;
+}
+
+.inserttexticons {
+    display: inline-block;
+    /*width: 50px;*/
+    float: right;
+    padding-top: 32px;
+}
+
+.icon {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    margin-bottom: 15px;
+    /*transition: .5s all;*/
+    display: inline-block;
+    background-color: #000;
+    color: white;
+}
+
+.sendicon {
+  padding-right: 25px;
+}
+
+.inputmessage {
+  width: 100%;
+}
