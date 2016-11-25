@@ -38,6 +38,16 @@ loaders.push({
 	]
 });
 
+
+// img modules // hack
+loaders.push({
+	test: /\.(ico|jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2)(\?.*)?$/,
+	query: {
+		name: 'static/media/[name].[hash:8].[ext]'
+	},
+	loaders: ['file']
+});
+
 module.exports = {
 	entry: [
 		'react-hot-loader/patch',
