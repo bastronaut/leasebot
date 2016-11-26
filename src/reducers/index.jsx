@@ -44,7 +44,7 @@ const testx = (state = {}, action) => {
 	return state;
 }
 
-const rootReducer = combineReducers({messages_reducer, testx})
+const rootReducer = combineReducers({messages_reducer})
 // const rootReducer = combineReducers({test, testx})
 
 export default rootReducer;

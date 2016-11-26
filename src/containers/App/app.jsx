@@ -27,7 +27,12 @@ class App extends Component {
 				<Header/>
 				<div className="wrapper">
 					<div className="content">
-						<Messages/>
+						<Messages
+							messages={this.props.messages}
+							introductiontext={this.props.introductiontext}
+							userId={this.props.userId}
+							inProgress={this.props.inProgress}
+							/>
 					</div>
 					<Composer/>
 				</div>
@@ -39,10 +44,11 @@ class App extends Component {
 
 
 const mapStateToProps = state => {
-	console.log('the state:');
-	console.log(state);
 	return {
-		messages: ['state.messages']
+		introductiontext : state.messages_reducer.introduction,
+		messages: state.messages_reducer.messages,
+		inProgress: state.messages_reducer.inProgress,
+		userId: state.messages_reducer.userid
 	}
 }
 
