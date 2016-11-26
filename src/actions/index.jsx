@@ -5,8 +5,8 @@ export const GET_INTRODUCTION = 'GET_INTRODUCTION';
 export const getIntroduction = param => {
 	return dispatch => {
 		dispatch(introductionPending());
-		API.get('/introduction/').then(resp => {
-			dispatch(introductionFulfilled); //Dispatch success
+		API.get('/introduction/').then(response => {
+			dispatch(introductionFulfilled(response)); //Dispatch success
 		}).catch(err => {
 			dispatch(GET_INTRODUCTION_REJECTED());
 		});
@@ -24,6 +24,9 @@ const introductionPending = () => {
 
 export const GET_INTRODUCTION_FULFILLED = 'GET_INTRODUCTION_FULFILLED';
 const introductionFulfilled = (payload) => {
+	console.log('\nits been fullfilled! the payl');
+	console.log(payload)
+	console.log('\n\n')
 	return {
 		type: GET_INTRODUCTION_FULFILLED,
 		payload: payload,

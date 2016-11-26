@@ -3,11 +3,11 @@ import {render} from 'react-dom';
 import {AppContainer} from 'react-hot-loader';
 import {store} from './store/index.js';
 import {Provider} from 'react-redux'
-import App from './components/app.jsx';
+import App from './containers/App/';
 
 if (module.hot) {
-	module.hot.accept('./components/app.jsx', () => {
-		const App = require('./components/app.jsx').default;
+	module.hot.accept('./containers/App/app.jsx', () => {
+		const App = require('./containers/App/app.jsx').default;
 		render(
 			<AppContainer>
 			<Provider store={store}>

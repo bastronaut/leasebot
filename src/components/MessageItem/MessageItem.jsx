@@ -1,22 +1,24 @@
-import React, {Component} from 'react';
+import React, {PropTypes} from 'react';
 
-export default class MessageItem extends Component {
-  render() {
-    return (
-      <div className="right">
-          <div className="message-container">
-              <div className="message-body">
-                  <div className="message">
-                      <p>Does my leasecontract allow
-                        me to put wintertires on my car?</p>
-                  </div>
-              </div>
-          </div>
-          <div className="message-footer">
-              <img src="img/textright.jpg" className="message-arrow" />
-              <img src="img/luc.jpg" className="avatar-img" />
-          </div>
-      </div>
-    )
-  }
+const MessageItem = ({sender, messagetext}) => (
+	<div className={sender}>
+		<div className="message-container">
+			<div className="message-body">
+				<div className="message">
+					<p>{messagetext}</p>
+				</div>
+			</div>
+		</div>
+		<div className="message-footer">
+			<img src="img/textright.jpg" className="message-arrow"/>
+			<img src="img/luc.jpg" className="avatar-img"/>
+		</div>
+	</div>
+)
+
+MessageItem.propTypes = {
+	sender: PropTypes.string.isRequired,
+	messagetext: PropTypes.string.isRequired
 }
+
+export default MessageItem;

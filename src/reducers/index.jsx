@@ -1,59 +1,34 @@
 import {combineReducers} from 'redux';
-import {GET_INTRODUCTION, RECEIVE_MESSAGE} from '../actions';
-
-// const messages = (state = {
-//     items: [1, 2, 3]
-//   }, action) => {
-//   switch (action.type) {
-//     case RECEIVE_MESSAGE:
-//       return {
-//         ...state,
-//         testy: true
-//       }
-//     default:
-//       return state;
-//   }
-// }
-//
-// const messagesx = (state = {
-//     items: [1, 2, 3]
-//   }, action) => {
-//   switch (action.type) {
-//     case RECEIVE_MESSAGE:
-//       return {
-//         ...state,
-//         testy: true
-//       }
-//     default:
-//       return state;
-//   }
-// }
+import {GET_INTRODUCTION, GET_INTRODUCTION_PENDING,
+	GET_INTRODUCTION_FULFILLED,	GET_INTRODUCTION_REJECTED,
+	MESSAGE_SEND, MESSAGE_RECEIVED} from '../actions';
 
 const initial_state = {
+	introduction: '',
 	messages: [],
 	inProgress: false,
-	error: null
+	error: null,
+	userid: ''
 };
 
 const action_type = "GET_INTRODUCTION";
 
 export const messages_reducer = (state = initial_state, action) => {
-	console.log('hi im in the message reducer:', action.type);
 	switch (action.type) {
-		case `${action_type}_PENDING`:
-			console.log('hi pending');
+		case GET_INTRODUCTION_PENDING:
 			return {
 				...state,
 				inProgress: true,
 				error: false
 			};
-		case `${action_type}_FULFILLED`:
+		case GET_INTRODUCTION_FULFILLED:
 			return {
 				...state,
-				messages: action.payload,
+				introduction: action.payload.introductiontext,
+				userid: action.payload.userid,
 				inProgress: false
 			};
-		case `${action_type}_REJECTED`:
+		case GET_INTRODUCTION_REJECTED:
 			return {
 				...state,
 				inProgress: false,
@@ -64,9 +39,6 @@ export const messages_reducer = (state = initial_state, action) => {
 	}
 }
 
-const test = (state = {}, action) => {
-	return state;
-}
 
 const testx = (state = {}, action) => {
 	return state;

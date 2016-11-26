@@ -132,29 +132,29 @@ Left styling
 ######################
  */
 
-.left .message {
+.person .message {
     background-color: #d6d4d5;
     border: 1px solid #d6d4d5;
 }
 
-.left .message p {
+.person .message p {
     color: #3d3b3c
 }
 
-.left .message-options {
+.person .message-options {
   border: 1px solid #d6d4d5;
   border-width: 1px 1px 0px 1px;
 }
 
-.left .avatar img {
+.person .avatar img {
     border: 1px solid #07a3e0;
 }
 
-.left .message-arrow {
+.person .message-arrow {
   float: right;
 }
 
-.left .message-footer {
+.person .message-footer {
   width: 215px;
 }
 
@@ -163,33 +163,33 @@ Left styling
  Right styling
  ######################
   */
-.right .message {
+.bot .message {
     background-color: #6eb744;
     border: 1px solid #6eb744;
 }
 
-.right .message p {
+.bot .message p {
     color: #fff
 }
 
-.right .message-options {
+.bot .message-options {
   border: 1px solid #6eb744;
   border-width: 1px 1px 0px 1px;
 }
 
-.right .avatar {
+.bot .avatar {
   overflow: auto;
 }
 
-.right .message-footer {
+.bot .message-footer {
   text-align: right;
 }
 
-.right .message-arrow {
+.bot .message-arrow {
   margin-right: 10px;
 }
 
-.right .message-footer {
+.bot .message-footer {
   width: 100%;
 }
 
