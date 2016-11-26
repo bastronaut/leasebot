@@ -40,6 +40,7 @@ const action_type = "GET_INTRODUCTION";
 export const messages_reducer = (state = initial_state, action) => {
 	switch (action.type) {
 		case `${action_type}_PENDING`:
+			console.log('hi pending');
 			return {
 				...state,
 				inProgress: true,

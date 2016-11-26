@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import logoUrl from './logo.png';
+require('./logo.png');
 
 export default class Header extends Component {
   render () {
     return (
       <div className="header">
-          <img src={logoUrl} />
+          <img src={require('./logo.png')} />
       </div>
     )
   }

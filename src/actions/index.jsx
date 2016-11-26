@@ -21,10 +21,11 @@ export const GET_INTRODUCTION_REJECTED = 'GET_INTRODUCTION_REJECTED';
 export const SEND_MESSAGE = 'SEND_MESSAGE';
 export const RECEIVE_MESSAGES = 'RECEIVE_MESSAGE';
 
-export const getIntroduction = param => {
-	console.log('the sample data:');
-	console.log(sampledata);
+export const getIntroduction = dispatch => {
+	console.log('calling getintroduction..');
+	// console.log(sampledata);
 	const action_type = "GET_INTRODUCTION";
+
 	return dispatch => {
 		dispatch({type: `${action_type}_PENDING`});
 		API.get('/introduction/').then(resp => {

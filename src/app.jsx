@@ -1,12 +1,12 @@
-import React, { Component, PropTypes } from 'react'
-import { connect } from 'react-redux'
-import undoable, { distinctState } from 'redux-undo';
+import React, {Component, PropTypes} from 'react'
+import {connect} from 'react-redux'
+import undoable, {distinctState} from 'redux-undo';
 import Header from './components/Header';
 import Messages from './components/Messages';
 import Composer from './components/Composer';
 import s from './assets/styles/style.css';
 import './assets/styles/style-desktop.css';
-import { getIntroduction } from './actions';
+import {getIntroduction} from './actions';
 
 class App extends Component {
 	static propTypes = {
@@ -14,9 +14,10 @@ class App extends Component {
 	}
 
 	componentDidMount() {
-		const { dispatch } = this.props;
+		const {dispatch} = this.props;
 		console.log('the component mounted');
-		console.log(getIntroduction());
+		getIntroduction();
+
 	}
 
 	render() {
@@ -25,15 +26,14 @@ class App extends Component {
 				<Header/>
 				<div className="wrapper">
 					<div className="content">
-							<Messages/>
+						<Messages/>
 					</div>
-							<Composer/>
+					<Composer/>
 				</div>
 			</div>
 		)
 	}
 }
-
 
 // <div>
 // 	<Header/>

@@ -1,25 +1,9 @@
 import React from 'react';
 import {render} from 'react-dom';
 import {AppContainer} from 'react-hot-loader';
-import {createStore, applyMiddleware} from 'redux'
-import thunk from 'redux-thunk'
-import createLogger from 'redux-logger'
+import {store} from './store/index.js';
 import {Provider} from 'react-redux'
 import App from './app.jsx';
-import reducer from './reducers'
-
-
-const middleware = [thunk]
-const store = createStore(reducer, applyMiddleware(...middleware))
-
-render(
-	<AppContainer>
-	<Provider store={store}>
-		<App/>
-	</Provider>
-</AppContainer>, document.getElementById("app"));
-
-
 
 if (module.hot) {
 	module.hot.accept('./app.jsx', () => {
@@ -32,3 +16,10 @@ if (module.hot) {
 		</AppContainer>, document.getElementById("app"));
 	});
 }
+
+render(
+	<AppContainer>
+	<Provider store={store}>
+		<App/>
+	</Provider>
+</AppContainer>, document.getElementById("app"));
