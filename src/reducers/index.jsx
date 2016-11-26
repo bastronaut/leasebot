@@ -38,6 +38,7 @@ const initial_state = {
 const action_type = "GET_INTRODUCTION";
 
 export const messages_reducer = (state = initial_state, action) => {
+	console.log('hi im in the message reducer:', action.type);
 	switch (action.type) {
 		case `${action_type}_PENDING`:
 			console.log('hi pending');
