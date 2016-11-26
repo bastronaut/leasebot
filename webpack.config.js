@@ -43,10 +43,7 @@ const PORT = process.env.PORT || "8888";
 // img modules // hack
 loaders.push({
 	test: /\.(ico|jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2)(\?.*)?$/,
-	loader: 'url-loader',
-	query: {
-		name: 'static/media/[name].[hash:8].[ext]',
-	}
+	loader: 'file-loader?name=images/[name].[ext]'
 });
 
 loaders.push({

@@ -9,6 +9,8 @@ var Api = {
     return new Promise(function (resolve, reject) {
       axios.get(url+GETEndPoint)
         .then(function(response) {
+          console.log('resolving! with:');
+          console.log(response);
           resolve(response.data);
         })
         .catch(function(error) {

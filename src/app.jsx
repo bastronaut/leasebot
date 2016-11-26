@@ -6,6 +6,7 @@ import Messages from './components/Messages';
 import Composer from './components/Composer';
 import s from './assets/styles/style.css';
 import './assets/styles/style-desktop.css';
+import { getIntroduction } from './actions';
 
 class App extends Component {
 	static propTypes = {
@@ -14,6 +15,8 @@ class App extends Component {
 
 	componentDidMount() {
 		const { dispatch } = this.props;
+		console.log('the component mounted');
+		console.log(getIntroduction());
 	}
 
 	render() {
