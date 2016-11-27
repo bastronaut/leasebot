@@ -45,8 +45,12 @@ padding-bottom textbericht: 40px;
 padding-leftright textberifht: 25px;
 */
 
-html, body, .wrapper, #app, #approot {
+html, body, #app, #approot {
     height: 100%;
+}
+
+.wrapper {
+  min-height: 100%;
 }
 
 p, a, input {
@@ -155,7 +159,7 @@ Left styling
 }
 
 .bot .message-footer {
-  width: 215px;
+  width: 160px;
 }
 
 /*
@@ -186,7 +190,7 @@ Left styling
 }
 
 .person .message-arrow {
-  margin-right: 10px;
+  margin-right: 20px;
 }
 
 .person .message-footer {

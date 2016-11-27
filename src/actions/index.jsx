@@ -45,10 +45,15 @@ const introductionRejected = (error) => {
 	}
 }
 
-export const MESSAGE_SEND = 'MESSAGE_SEND';
+
 export const sendMessage = (message, userid) => {
 	return dispatch => {
-		dispatch(sendMessagePending(message));
+		dispatch(sendMessageSend(message));
+		setTimeout( () => {
+			console.log('\n\nin de timeout\n\n');
+			dispatch(sendMessagePending())
+		}, 1200);
+
 		var params = new URLSearchParams();
 		params.append('questiontext', message);
 		params.append('userid', userid);
@@ -61,20 +66,21 @@ export const sendMessage = (message, userid) => {
 
 }
 
-// return {
-// 	type: MESSAGE_SEND,
-// 	message: message,
-// 	userid: userid,
-// 	isPending: true
-// }
-//
+// oops. Do some refactoring, send message and send message pending
+// must be reorganized
+export const MESSAGE_SEND = 'MESSAGE_SEND';
+export const sendMessageSend = (message) => {
+	return {
+		type: MESSAGE_SEND,
+		message: message
+	}
+}
 
 export const MESSAGE_SEND_PENDING = 'MESSAGE_SEND_PENDING';
-export const sendMessagePending = (message) => {
+export const sendMessagePending = () => {
 	return {
 		type: MESSAGE_SEND_PENDING,
 		isPending: true,
-		message: message
 	}
 }
 export const MESSAGE_RECEIVED = 'MESSAGE_RECEIVED';

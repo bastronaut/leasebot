@@ -2,10 +2,9 @@ import { MESSAGE_SEND, MESSAGE_SEND_PENDING, MESSAGE_RECEIVED, MESSAGE_REJECTED}
 
 export const messages_reducer = (state = { messagelist: []}, action) => {
 	switch (action.type) {
-		case MESSAGE_SEND_PENDING:
+		case MESSAGE_SEND:
 			return {
 				...state,
-				inProgress: true,
 				error: false,
 				messagelist: [...state.messagelist, {
 					text: action.message,
@@ -13,6 +12,12 @@ export const messages_reducer = (state = { messagelist: []}, action) => {
 					timestamp: Date.now()
 				}]
 			};
+		case MESSAGE_SEND_PENDING:
+			return {
+				...state,
+				inProgress: true,
+			};
+
 		case MESSAGE_RECEIVED:
 			return {
 				...state,
