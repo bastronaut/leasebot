@@ -1,9 +1,8 @@
 import React, {PropTypes} from 'react';
-import s from './logo.png'
 
 const Header = () => (
   <div className="header">
-      <img src={s} />
+      <img src='/img/logo.png' />
   </div>
 )
 

@@ -7,7 +7,7 @@ const Footer = () => (
 				<input type="textarea" className="inputmessage" name="inputmessage" placeholder="Ask me anything "/>
 			</div>
 			<div className="inserttexticons">
-				<img src="./send.svg" className="sendicon"/>
+				<img src="/img/send.svg" className="sendicon"/>
 			</div>
 		</div>
 	</div>

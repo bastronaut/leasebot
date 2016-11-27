@@ -193,6 +193,10 @@ Left styling
   width: 100%;
 }
 
+.bot.pending .message-body {
+  width: 150px;
+  margin-left: auto;
+}
 
 /*
 ######################
