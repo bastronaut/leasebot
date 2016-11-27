@@ -10,8 +10,8 @@ const MessageItem = ({sender, messagetext}) => (
 			</div>
 		</div>
 		<div className="message-footer">
-			<img src="/img/textright.jpg" className="message-arrow"/>
-			<img src="/img/luc.jpg" className="avatar-img"/>
+			<img src={sender == 'bot' || 'bot pending' ? "/img/textright.jpg" : "/img/textleft.jpg" } className="message-arrow"/>
+			<img src={sender == 'bot' || 'bot pending' ? "/img/bot.jpg" : "/img/luc.jpg" } className="avatar-img"/>
 		</div>
 	</div>
 )

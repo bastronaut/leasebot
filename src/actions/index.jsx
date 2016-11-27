@@ -36,7 +36,7 @@ const introductionFulfilled = (payload) => {
 
 export const GET_INTRODUCTION_REJECTED = 'GET_INTRODUCTION_REJECTED';
 const introductionRejected = (error) => {
-	console.log('tehres an error:');
+	console.log('theres an error:');
 	console.log(err);
 	return {
 		type: GET_INTRODUCTION_REJECTED,
@@ -46,20 +46,48 @@ const introductionRejected = (error) => {
 }
 
 export const MESSAGE_SEND = 'MESSAGE_SEND';
-const sendMessage = (message, userid) => {
+export const sendMessage = (message, userid) => {
+	return dispatch => {
+		dispatch(sendMessagePending());
+		let question = { questiontext: message, userid: userid};
+		API.post('/question/', question).then(response => {
+			dispatch(messageReceived(response));
+		}).catch(err => {
+			dispatch(messageRejected(response));
+		})
+	}
+
+}
+
+// return {
+// 	type: MESSAGE_SEND,
+// 	message: message,
+// 	userid: userid,
+// 	isPending: true
+// }
+//
+
+export const MESSAGE_SEND_PENDING = 'MESSAGE_SEND_PENDING';
+export const sendMessagePending = () => {
 	return {
-		type: SEND_MESSAGE,
-		message: message,
-		userid: userid,
+		type: MESSAGE_SEND_PENDING,
 		isPending: true
 	}
 }
-
 export const MESSAGE_RECEIVED = 'MESSAGE_RECEIVED';
-export const messageReceived = (message, json) => {
+export const messageReceived = (payload) => {
 	return {
 		type: MESSAGE_RECEIVED,
-		result: json,
+		result: payload,
+		isPending: false
+	}
+}
+
+export const MESSAGE_REJECTED = 'MESSAGE_REJECTED';
+export const messageRejected = (error) => {
+	return {
+		type: MESSAGE_REJECTED,
+		error: error,
 		isPending: false
 	}
 }

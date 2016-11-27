@@ -194,8 +194,13 @@ Left styling
 }
 
 .bot.pending .message-body {
-  width: 150px;
+  width: 125px;
   margin-left: auto;
+}
+
+.bot.pending p {
+  font-weight: bold;
+  text-align: center;
 }
 
 /*
@@ -241,7 +246,7 @@ Start Footer
 }
 
 .sendicon {
-  padding-right: 25px;
+  padding: 0 25px 0 0;
 }
 
 .inputmessage {

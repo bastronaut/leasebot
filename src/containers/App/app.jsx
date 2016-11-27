@@ -6,7 +6,8 @@ import Composer from '../../components/Composer';
 import Messages from '../../containers/Messages';
 import s from '../../assets/styles/style.css';
 import '../../assets/styles/style-desktop.css';
-import {getIntroduction} from '../../actions';
+import {getIntroduction, sendMessage } from '../../actions';
+
 
 class App extends Component {
 	static propTypes = {
@@ -19,6 +20,12 @@ class App extends Component {
 
 		dispatch(getIntroduction());
 
+	}
+
+	handleSubmitMessage(messagetext) {
+		console.log('hier ist:', messagetext);
+		const {dispatch, userId} = this.props;
+		dispatch(sendMessage(messagetext, userId));
 	}
 
 	render() {
@@ -34,7 +41,7 @@ class App extends Component {
 							inProgress={this.props.inProgress}
 							/>
 					</div>
-					<Composer/>
+					<Composer submitMessage={(messagetext) => this.handleSubmitMessage(messagetext) }/>
 				</div>
 			</div>
 		)
@@ -45,10 +52,10 @@ class App extends Component {
 
 const mapStateToProps = state => {
 	return {
-		introductiontext : state.messages_reducer.introduction,
-		messages: state.messages_reducer.messages,
-		inProgress: state.messages_reducer.inProgress,
-		userId: state.messages_reducer.userid
+		introductiontext : state.introduction_reducer.introduction,
+		messages: state.introduction_reducer.messages,
+		inProgress: state.introduction_reducer.inProgress,
+		userId: state.introduction_reducer.userid
 	}
 }
 

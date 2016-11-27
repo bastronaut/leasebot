@@ -20,6 +20,7 @@ var Api = {
     });
   },
   post: function(POSTEndPoint, payload) {
+    console.log('sending payLoad:');
     console.log(payload);
     return new Promise(function (resolve, reject) {
       axios.post(url+POSTEndPoint, payload)
