@@ -37,8 +37,8 @@ class App extends Component {
 						<Messages
 							messages={this.props.messages.messagelist}
 							introductiontext={this.props.introduction.introductiontext}
-							userId={this.props.userId}
-							inProgress={this.props.inProgress}
+							userId={this.props.introduction.userId}
+							inProgress={this.props.messages.inProgress}
 							/>
 					</div>
 					<Composer submitMessage={(messagetext) => this.handleSubmitMessage(messagetext) }/>
