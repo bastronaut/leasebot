@@ -132,29 +132,29 @@ Left styling
 ######################
  */
 
-.person .message {
+.bot .message {
     background-color: #d6d4d5;
     border: 1px solid #d6d4d5;
 }
 
-.person .message p {
+.bot .message p {
     color: #3d3b3c
 }
 
-.person .message-options {
+.bot .message-options {
   border: 1px solid #d6d4d5;
   border-width: 1px 1px 0px 1px;
 }
 
-.person .avatar img {
+.bot .avatar img {
     border: 1px solid #07a3e0;
 }
 
-.person .message-arrow {
+.bot .message-arrow {
   float: right;
 }
 
-.person .message-footer {
+.bot .message-footer {
   width: 215px;
 }
 
@@ -163,42 +163,42 @@ Left styling
  Right styling
  ######################
   */
-.bot .message {
+.person .message {
     background-color: #6eb744;
     border: 1px solid #6eb744;
 }
 
-.bot .message p {
+.person .message p {
     color: #fff
 }
 
-.bot .message-options {
+.person .message-options {
   border: 1px solid #6eb744;
   border-width: 1px 1px 0px 1px;
 }
 
-.bot .avatar {
+.person .avatar {
   overflow: auto;
 }
 
-.bot .message-footer {
+.person .message-footer {
   text-align: right;
 }
 
-.bot .message-arrow {
+.person .message-arrow {
   margin-right: 10px;
 }
 
-.bot .message-footer {
+.person .message-footer {
   width: 100%;
 }
 
-.bot.pending .message-body {
+.person.pending .message-body {
   width: 125px;
   margin-left: auto;
 }
 
-.bot.pending p {
+.person.pending p {
   font-weight: bold;
   text-align: center;
 }
