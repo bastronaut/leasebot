@@ -31,7 +31,7 @@ export default class Footer extends Component {
 								onChange={this.handleChange} />
 						</div>
 						<div className="inserttexticons">
-							<input type="image" src="leasebot/public/img/send.svg" autoComplete="off" className="sendicon"/>
+							<input type="image" src="img/send.svg" autoComplete="off" className="sendicon"/>
 						</div>
 					</form>
 				</div>
