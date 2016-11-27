@@ -48,9 +48,11 @@ const introductionRejected = (error) => {
 export const MESSAGE_SEND = 'MESSAGE_SEND';
 export const sendMessage = (message, userid) => {
 	return dispatch => {
-		dispatch(sendMessagePending());
-		let question = { questiontext: message, userid: userid};
-		API.post('/question/', question).then(response => {
+		dispatch(sendMessagePending(message));
+		var params = new URLSearchParams();
+		params.append('questiontext', message);
+		params.append('userid', userid);
+		API.post('/question/', params).then(response => {
 			dispatch(messageReceived(response));
 		}).catch(err => {
 			dispatch(messageRejected(response));
@@ -68,14 +70,17 @@ export const sendMessage = (message, userid) => {
 //
 
 export const MESSAGE_SEND_PENDING = 'MESSAGE_SEND_PENDING';
-export const sendMessagePending = () => {
+export const sendMessagePending = (message) => {
 	return {
 		type: MESSAGE_SEND_PENDING,
-		isPending: true
+		isPending: true,
+		message: message
 	}
 }
 export const MESSAGE_RECEIVED = 'MESSAGE_RECEIVED';
 export const messageReceived = (payload) => {
+	console.log('the payload:');
+	console.log(payload);
 	return {
 		type: MESSAGE_RECEIVED,
 		result: payload,

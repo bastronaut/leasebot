@@ -11,7 +11,7 @@ import {getIntroduction, sendMessage } from '../../actions';
 
 class App extends Component {
 	static propTypes = {
-		messages: PropTypes.array.isRequired,
+		messages: PropTypes.object.isRequired,
 		dispatch: PropTypes.func.isRequired
 	}
 
@@ -35,8 +35,8 @@ class App extends Component {
 				<div className="wrapper">
 					<div className="content">
 						<Messages
-							messages={this.props.messages}
-							introductiontext={this.props.introductiontext}
+							messages={this.props.messages.messagelist}
+							introductiontext={this.props.introduction.introductiontext}
 							userId={this.props.userId}
 							inProgress={this.props.inProgress}
 							/>
@@ -51,11 +51,15 @@ class App extends Component {
 
 
 const mapStateToProps = state => {
+	// return {
+	// 	introductiontext : state.introduction.introduction,
+	// 	messages: state.messages.messages,
+	// 	inProgress: state.messages.inProgress,
+	// 	userId: state.introduction.userid
+	// }
 	return {
-		introductiontext : state.introduction_reducer.introduction,
-		messages: state.introduction_reducer.messages,
-		inProgress: state.introduction_reducer.inProgress,
-		userId: state.introduction_reducer.userid
+		messages: state.messages,
+		introduction: state.introduction
 	}
 }
 

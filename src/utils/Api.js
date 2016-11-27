@@ -1,5 +1,7 @@
-var axios = require('axios');
+import axios from 'axios';
 var url =  'http://vm-ubuntu-jvdg5111.cloudapp.net';
+
+
 
 var Promise = require('es6-promise').Promise;
 
