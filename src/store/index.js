@@ -1,4 +1,4 @@
-import reducer from '../Reducers'
+import reducer from '../reducers'
 import createLogger from 'redux-logger'
 import thunk from 'redux-thunk'
 import {createStore, applyMiddleware} from 'redux'
