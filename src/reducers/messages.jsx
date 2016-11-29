@@ -19,6 +19,14 @@ export const messages_reducer = (state = { messagelist: []}, action) => {
 			};
 
 		case MESSAGE_RECEIVED:
+		let remaininganswers = [];
+		if (action.result.length > 0) {
+			if (action.result.length > 1) {
+				// if more answers are present, there will always be 3 additonal answers
+				remaininganswers.push(action.result.answer1);
+				remaininganswers.push(action.result.answer2);
+				remaininganswers.push(action.result.answer3);
+			};
 			return {
 				...state,
 				messagelist: [...state.messagelist, {
@@ -27,8 +35,13 @@ export const messages_reducer = (state = { messagelist: []}, action) => {
 					timestamp: Date.now()
 					}],
 				inProgress: false,
-				error: false
+				error: false,
+				remaininganswers: remaininganswers;
 			};
+			}
+			else {
+				return state;
+			}
 		case MESSAGE_REJECTED:
 			return {
 				...state,
