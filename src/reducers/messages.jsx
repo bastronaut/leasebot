@@ -36,7 +36,7 @@ export const messages_reducer = (state = { messagelist: []}, action) => {
 					}],
 				inProgress: false,
 				error: false,
-				remaininganswers: remaininganswers;
+				remaininganswers: remaininganswers
 			};
 			}
 			else {
