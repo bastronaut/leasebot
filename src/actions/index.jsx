@@ -1,5 +1,7 @@
 import sampledata from '../utils/sampledata';
 import API from '../utils/Api';
+import URLSearchParams from 'url-search-params';
+
 
 export const GET_INTRODUCTION = 'GET_INTRODUCTION';
 export const getIntroduction = param => {
@@ -24,9 +26,8 @@ const introductionPending = () => {
 
 export const GET_INTRODUCTION_FULFILLED = 'GET_INTRODUCTION_FULFILLED';
 const introductionFulfilled = (payload) => {
-	console.log('\nits been fullfilled! the payl');
+	console.log('\nits been fullfilled! the payload:');
 	console.log(payload)
-	console.log('\n\n')
 	return {
 		type: GET_INTRODUCTION_FULFILLED,
 		payload: payload,
