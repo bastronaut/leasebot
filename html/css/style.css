@@ -98,6 +98,7 @@ Start Content
 
 .message {
     padding: 15px;
+	border-radius: 5px;
 }
 
 .avatar-img {

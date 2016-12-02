@@ -30,7 +30,7 @@ class App extends Component {
 
 	render() {
 		return (
-			<div id="approot">
+			<div id="approot" className="approot">
 				<Header/>
 				<div className="wrapper">
 					<div className="content">

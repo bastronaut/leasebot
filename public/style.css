@@ -45,7 +45,7 @@ padding-bottom textbericht: 40px;
 padding-leftright textberifht: 25px;
 */
 
-html, body, #app, #approot {
+html, body, .wrapper {
     height: 100%;
 }
 
@@ -80,7 +80,7 @@ Start Content
  */
 
 .wrapper {
-    min-height: 100%;
+    height: 100%;
     width: 100%;
     max-width: 450px;
     margin-left: auto;
@@ -98,6 +98,7 @@ Start Content
 
 .message {
     padding: 15px;
+	border-radius: 5px;
 }
 
 .avatar-img {
@@ -132,30 +133,30 @@ Left styling
 ######################
  */
 
-.bot .message {
+.left .message {
     background-color: #d6d4d5;
     border: 1px solid #d6d4d5;
 }
 
-.bot .message p {
+.left .message p {
     color: #3d3b3c
 }
 
-.bot .message-options {
+.left .message-options {
   border: 1px solid #d6d4d5;
   border-width: 1px 1px 0px 1px;
 }
 
-.bot .avatar img {
+.left .avatar img {
     border: 1px solid #07a3e0;
 }
 
-.bot .message-arrow {
+.left .message-arrow {
   float: right;
 }
 
-.bot .message-footer {
-  width: 160px;
+.left .message-footer {
+  width: 215px;
 }
 
 /*
@@ -163,45 +164,36 @@ Left styling
  Right styling
  ######################
   */
-.person .message {
+.right .message {
     background-color: #6eb744;
     border: 1px solid #6eb744;
 }
 
-.person .message p {
+.right .message p {
     color: #fff
 }
 
-.person .message-options {
+.right .message-options {
   border: 1px solid #6eb744;
   border-width: 1px 1px 0px 1px;
 }
 
-.person .avatar {
+.right .avatar {
   overflow: auto;
 }
 
-.person .message-footer {
+.right .message-footer {
   text-align: right;
 }
 
-.person .message-arrow {
-  margin-right: 20px;
+.right .message-arrow {
+  margin-right: 10px;
 }
 
-.person .message-footer {
+.right .message-footer {
   width: 100%;
 }
 
-.person.pending .message-body {
-  width: 125px;
-  margin-left: auto;
-}
-
-.person.pending p {
-  font-weight: bold;
-  text-align: center;
-}
 
 /*
 ######################
@@ -246,7 +238,7 @@ Start Footer
 }
 
 .sendicon {
-  padding: 0 25px 0 0;
+  padding-right: 25px;
 }
 
 .inputmessage {
