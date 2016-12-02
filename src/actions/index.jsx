@@ -4,7 +4,7 @@ import URLSearchParams from 'url-search-params';
 
 
 export const GET_INTRODUCTION = 'GET_INTRODUCTION';
-export const getIntroduction = param => {
+export const getIntroduction = () => {
 	return dispatch => {
 		dispatch(introductionPending());
 		API.get('/introduction/').then(response => {
@@ -51,7 +51,6 @@ export const sendMessage = (message, userid) => {
 	return dispatch => {
 		dispatch(sendMessageSend(message));
 		setTimeout( () => {
-			console.log('\n\nin de timeout\n\n');
 			dispatch(sendMessagePending())
 		}, 1200);
 
@@ -60,6 +59,7 @@ export const sendMessage = (message, userid) => {
 		params.append('userid', userid);
 		API.post('/question/', params).then(response => {
 			dispatch(messageReceived(response));
+			scrollDown();
 		}).catch(err => {
 			dispatch(messageRejected(response));
 		})
@@ -102,4 +102,8 @@ export const messageRejected = (error) => {
 		error: error,
 		isPending: false
 	}
+}
+
+const scrollDown = () => {
+	window.scrollTo(0,document.body.scrollHeight);
 }
