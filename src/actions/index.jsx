@@ -2,6 +2,7 @@ import sampledata from '../utils/sampledata';
 import API from '../utils/Api';
 import URLSearchParams from 'url-search-params';
 
+const remaininganswermessage = 'Heeft deze vraag u geholpen?';
 
 export const GET_INTRODUCTION = 'GET_INTRODUCTION';
 export const getIntroduction = () => {
@@ -60,6 +61,24 @@ export const sendMessage = (message, userid) => {
 		API.post('/question/', params).then(response => {
 			dispatch(messageReceived(response));
 			scrollDown();
+
+			// this part is not so nice. Should probably not put this much logic
+			// in action? Reducer may be better. Also risk for a race condition.
+			// If a user types a 2nd message faster
+			// than the 300ms timeout chain, it may get funky.
+			// Can be solved by restructuring the Store to hold the ' remaininganswers'
+			// not as an array on the store object, but as an array on each message object.
+			// for MVP scope these kinds of limitations are.. probably OK?
+			if (response.answer1) {
+				setTimeout( () => {
+					dispatch(remainingAnswersPending());
+					scrollDown();
+					setTimeout( () => {
+						dispatch(sendRemainingAnswersInstruction());
+						scrollDown();
+					}, 1200);
+				}, 600);
+			}
 		}).catch(err => {
 			dispatch(messageRejected(response));
 		})
@@ -103,6 +122,24 @@ export const messageRejected = (error) => {
 		isPending: false
 	}
 }
+
+
+export const REMAININGANSWERS_PENDING = 'REMAININGANSWERS_PENDING';
+export const remainingAnswersPending = () => {
+	return {
+		type: REMAININGANSWERS_PENDING,
+		isPending: true,
+	}
+}
+
+export const REMAININGANSWERS_SENDINSTRUCTION = 'REMAININGANSWERS_SENDINSTRUCTION';
+export const sendRemainingAnswersInstruction = () => {
+	return {
+		type: REMAININGANSWERS_SENDINSTRUCTION,
+		message: remaininganswermessage,
+	}
+}
+
 
 const scrollDown = () => {
 	window.scrollTo(0,document.body.scrollHeight);
