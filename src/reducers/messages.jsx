@@ -77,7 +77,11 @@ export const messages_reducer = (state = {
 				...state.messagelist, {
 					text: action.message,
 					sender: 'bot',
-					timestamp: Date.now()
+					timestamp: Date.now(),
+					options: [
+				    { text: 'Yes', link: '#'},
+				    { text: 'No', link: '#'}
+					]
 				}
 			],
 			inProgress: false

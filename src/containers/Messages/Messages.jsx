@@ -15,6 +15,7 @@ export default class Messages extends Component {
 				{this.props.messages.map( (message, i) =>
 					<MessageItem sender={message.sender}
 						messagetext={message.text}
+						msgoptions={message.options}
 						key={'message_'+i} />
 				)}
 
