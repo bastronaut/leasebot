@@ -1,9 +1,12 @@
-import {MESSAGE_SEND, MESSAGE_SEND_PENDING, MESSAGE_RECEIVED, MESSAGE_REJECTED} from '../actions';
+import {MESSAGE_SEND, MESSAGE_SEND_PENDING, MESSAGE_RECEIVED,
+	MESSAGE_REJECTED, REMAININGANSWERS_PENDING,
+	REMAININGANSWERS_SENDINSTRUCTION} from '../actions';
 
 export const messages_reducer = (state = {
 	messagelist: []
 }, action) => {
 	switch (action.type) {
+
 		case MESSAGE_SEND:
 			return {
 				...state,
@@ -16,6 +19,7 @@ export const messages_reducer = (state = {
 					}
 				]
 			};
+
 		case MESSAGE_SEND_PENDING:
 			return {
 				...state,
@@ -49,12 +53,41 @@ export const messages_reducer = (state = {
 			} else {
 				return state;
 			}
+
 		case MESSAGE_REJECTED:
 			return {
 				...state,
 				inProgress: false,
 				error: action.error
 			};
+
+		case REMAININGANSWERS_PENDING:
+			if (state.remaininganswers.length > 1) {
+				return {
+					...state,
+					inProgress: true
+				};
+				return state;
+			}
+
+		case REMAININGANSWERS_SENDINSTRUCTION:
+		return {
+			...state,
+			messagelist: [
+				...state.messagelist, {
+					text: action.message,
+					sender: 'bot',
+					timestamp: Date.now(),
+					options: [
+				    { text: 'Yes', link: '#'},
+				    { text: 'No', link: '#'}
+					]
+				}
+			],
+			inProgress: false
+		};
+		return state;
+
 		default:
 			return state
 	}
