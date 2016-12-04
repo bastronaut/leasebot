@@ -4,6 +4,10 @@
    License: none (public domain)
 */
 
+html, body, div, span, a, input, p{	
+	font-family: 'Open Sans', Helvetica !important;
+}
+
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
     margin: 0;
     padding: 0;
@@ -12,7 +16,6 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     font: inherit;
     vertical-align: baseline;
 }
-
 
 /* HTML5 display-role reset for older browsers */
 
@@ -45,7 +48,7 @@ padding-bottom textbericht: 40px;
 padding-leftright textberifht: 25px;
 */
 
-html, body, .wrapper {
+html, body, #app, #approot {
     height: 100%;
 }
 
@@ -54,23 +57,68 @@ p, a, input {
     line-height: 1.5;
 }
 
-.header {
-    text-align: center;
-    border-bottom: 1px solid #d6d4d5;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: white;
-    z-index: 2;
+.approot{
+	width: 100%;
+	max-width: 450px;
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
 }
 
-.header img {
-    padding: 3px;
+.header {
+    text-align: center;
+    position: fixed;
+    top: 0;
+	margin-left: 1px;
+	margin-right: 2px;
+    background-color: white;
+    z-index: 2;
+	height: 110px;
+	width: 100%;
+	max-width: 448px;
+}
+
+.header-logo{
+	padding-top: 10px;
+	background: url('../img/carl-logo.png') center center no-repeat;
+	background-size: 20%;
+	height: 50px;
+	width: 100%;
+}
+
+.header-profile-image{
+	float: right;
+	margin-right: 8px;
+	width: 35px;
+	border-radius: 50%;
+}
+
+.header-buttons{
+	margin-top: 15px;
+	height: 30px;
+	width: calc(100% - 30px);
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.header-buttons a {
+	width: 50%;
+	float: left; 
+	font-size: 14px;
+	color: #C3C3C3;
+	text-decoration: none;
+	border-bottom: 3px solid #C3C3C3;
+	padding-bottom: 2px;
+}
+
+.header-buttons a.selected {
+	color: #262626;
+	border-color: #6FB744;
 }
 
 input {
   border: none;
-  padding: 40px 25px;
+  padding: 30px 25px;
 }
 
 /*
@@ -80,15 +128,12 @@ Start Content
  */
 
 .wrapper {
-    height: 100%;
-    width: 100%;
-    max-width: 450px;
-    margin-left: auto;
-    margin-right: auto;
+    min-height: 100%;    
+	background: #FAF9F9;
 }
 
 .content {
-    padding: 85px 20px 100px 20px;
+    padding: 135px 20px 100px 20px;
 }
 
 .message-body {
@@ -97,8 +142,14 @@ Start Content
 }
 
 .message {
-    padding: 15px;
+    padding: 10px 15px;
 	border-radius: 5px;
+	font-size: 18px;
+	line-height: 0.2em;
+}
+
+.message p {
+    line-height: 1.3em;
 }
 
 .avatar-img {
@@ -133,30 +184,35 @@ Left styling
 ######################
  */
 
-.left .message {
+.bot .message {
     background-color: #d6d4d5;
     border: 1px solid #d6d4d5;
 }
 
-.left .message p {
+.bot .message p {
     color: #3d3b3c
 }
 
-.left .message-options {
+.bot .message-options {
   border: 1px solid #d6d4d5;
   border-width: 1px 1px 0px 1px;
 }
 
-.left .avatar img {
+.bot .avatar img {
     border: 1px solid #07a3e0;
+	
 }
 
-.left .message-arrow {
+.bot .avatar-img {
+	top: 10px;
+}
+.bot .message-arrow {
   float: right;
 }
 
-.left .message-footer {
-  width: 215px;
+.bot .message-footer {
+  width: 160px;
+  padding-bottom: 20px;
 }
 
 /*
@@ -164,36 +220,50 @@ Left styling
  Right styling
  ######################
   */
-.right .message {
+.person .message {
     background-color: #6eb744;
     border: 1px solid #6eb744;
 }
 
-.right .message p {
+.person .message p {
     color: #fff
 }
 
-.right .message-options {
+.person .message-options {
   border: 1px solid #6eb744;
   border-width: 1px 1px 0px 1px;
 }
 
-.right .avatar {
+.person .avatar {
   overflow: auto;
 }
 
-.right .message-footer {
+.person .avatar-img {
+	top: 10px;
+}
+
+.person .message-footer {
   text-align: right;
 }
 
-.right .message-arrow {
-  margin-right: 10px;
+.person .message-arrow {
+  margin-right: 20px;
 }
 
-.right .message-footer {
+.person .message-footer {
   width: 100%;
+  padding-bottom: 20px;
 }
 
+.person.pending .message-body {
+  width: 125px;
+  margin-left: auto;
+}
+
+.person.pending p {
+  font-weight: bold;
+  text-align: center;
+}
 
 /*
 ######################
@@ -207,7 +277,7 @@ Start Footer
     border-top: 1px solid #d6d4d5;
     background-color: white;
     width: 100%;
-    max-width: 450px;
+    max-width: 448px;
 }
 
 .footer-wrapper {
@@ -216,14 +286,14 @@ Start Footer
 
 .inserttext {
     display: inline-block;
-    width: 60%;
+    width: calc(100% - 120px);
 }
 
 .inserttexticons {
     display: inline-block;
     /*width: 50px;*/
     float: right;
-    padding-top: 32px;
+    padding-top: 20px;
 }
 
 .icon {
@@ -238,9 +308,10 @@ Start Footer
 }
 
 .sendicon {
-  padding-right: 25px;
+  padding: 0 15px 0 0;
 }
 
 .inputmessage {
   width: 100%;
+  color: #A1A1A1;
 }

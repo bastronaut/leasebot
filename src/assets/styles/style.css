@@ -77,6 +77,9 @@ p, a, input {
 	width: 100%;
 	max-width: 448px;
 }
+.header.profile-header{
+	height: 80px;
+}
 
 .header-logo{
 	padding-top: 10px;
@@ -91,6 +94,16 @@ p, a, input {
 	margin-right: 8px;
 	width: 35px;
 	border-radius: 50%;
+	cursor: pointer;
+}
+
+.header-back-image{
+	float: left;
+	margin-left: 10px;
+	height: 22px;
+	width: 14px;
+	margin-top: 1px;
+	cursor: pointer;
 }
 
 .header-buttons{
@@ -129,11 +142,17 @@ Start Content
 
 .wrapper {
     min-height: 100%;    
+}
+
+.wrapper.grey{
 	background: #FAF9F9;
 }
 
 .content {
     padding: 135px 20px 100px 20px;
+}
+.content.profile-content{
+	padding-top: 105px;
 }
 
 .message-body {
@@ -314,4 +333,39 @@ Start Footer
 .inputmessage {
   width: 100%;
   color: #A1A1A1;
+}
+
+/*
+######################
+Profile
+######################
+ */
+ 
+ .profile{
+	 font-family: 'Open Sans', Helvetica;
+ }
+
+.large-profile-image{
+	background: url('../img/avatar-large.png') center top no-repeat;
+	background-size: 160px;
+	height: 160px;
+}
+
+.profile h1{
+	text-align: center;
+	margin-top: 20px;
+	font-size: 1.6em;
+	font-weight: 100;
+	padding-bottom: 30px;
+	margin-left: -20px; 
+	margin-right: -20px;
+}
+
+.profile h1.name{
+	border-bottom: 1px solid #C3C3C3;	
+}
+
+.profile h1.profile-header{
+	color: #C3C3C3;
+	margin-top: 30px;
 }
