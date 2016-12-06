@@ -25,6 +25,11 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 body {
     line-height: 1;
+	background: url('../img/bg.png') no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 }
 
 ol, ul {
@@ -109,9 +114,9 @@ p, a, input {
 .header-buttons{
 	margin-top: 15px;
 	height: 30px;
-	width: calc(100% - 30px);
-	padding-left: 15px;
-	padding-right: 15px;
+	width: calc(100% - 40px);
+	padding-left: 20px;
+	padding-right: 20px;
 }
 
 .header-buttons a {
@@ -368,4 +373,30 @@ Profile
 .profile h1.profile-header{
 	color: #C3C3C3;
 	margin-top: 30px;
+}
+
+.profile-setting span{
+	height: 25px;
+	
+	border-radius: 5px;
+	border-right: none;
+	border-bottom-right-radius: 0px;
+	border-top-right-radius: 0px;	
+	padding-left: 40px;
+	padding-top: 8px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.profile-setting select{
+	height: 32px;
+	background: linear-gradient(to bottom, #F0F0F0, white);
+	border: 1px solid #D6D5D5;
+	border-radius: 5px;
+	border-left: none;
+	border-bottom-left-radius: 0px;
+	border-top-left-radius: 0px;	
+	padding-left: 40px;
+	padding-top: 2px;
+	padding-bottom: 4px;
 }
