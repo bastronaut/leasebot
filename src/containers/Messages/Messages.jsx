@@ -16,6 +16,7 @@ export default class Messages extends Component {
 					<MessageItem sender={message.sender}
 						messagetext={message.text}
 						msgoptions={message.options}
+						evaluateAnswer={this.props.evaluateAnswer}
 						key={'message_'+i} />
 				)}
 

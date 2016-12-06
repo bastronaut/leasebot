@@ -1,14 +1,14 @@
 import React, {PropTypes} from 'react';
 import MessageOptions from '../MessageOptions';
 
-const MessageItem = ({sender, messagetext, msgoptions}) => (
+const MessageItem = ({sender, messagetext, msgoptions, evaluateAnswer}) => (
 	<div className={sender}>
 		<div className="message-container">
 			<div className="message-body">
 				<div className={ "message" + (msgoptions ? " message-with-options" : "") }>
 					<p>{messagetext}</p>
 				</div>
-				{msgoptions ? <MessageOptions msgoptions={msgoptions ? msgoptions : [1, 2]}/>
+				{msgoptions ? <MessageOptions msgoptions={msgoptions ? msgoptions : [1, 2]} evaluateAnswer={evaluateAnswer}/>
 				: ''}
 			</div>
 		</div>

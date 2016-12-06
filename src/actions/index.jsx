@@ -140,6 +140,15 @@ export const sendRemainingAnswersInstruction = () => {
 	}
 }
 
+export const EVALUATE_ANSWER = 'EVALUATE_ANSWER';
+export const evaluateAnswer = (evaluation) => {
+	console.log('evaluation:');
+	console.log(evaluation);
+	return {
+		type: EVALUATE_ANSWER,
+		evaluation: evaluation
+	}
+}
 
 const scrollDown = () => {
 	window.scrollTo(0,document.body.scrollHeight);

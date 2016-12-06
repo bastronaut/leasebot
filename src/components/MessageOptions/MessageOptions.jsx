@@ -28,7 +28,10 @@ export default class MessageOptions extends Component {
 
 				{this.props.msgoptions.map( (option, i) =>
 					<div className={ "option" + (option.type == "url" ? " url-option" : "" ) } key={'msgoption_'+ option.text +'i'}>
-						<a href={option.link} target={option.type == "url" ? "_blank" : "" }>{option.text}</a>
+						{	option.type == "url" ?
+								<a href={option.link} target={option.type == "url" ? "_blank" : "" }>{option.text}</a> :
+								<a href="#" onClick={this.props.evaluateAnswer.bind(this, option.link)}>{option.text}</a>
+						}
 					</div>
 				)}
 

@@ -8,7 +8,7 @@ import Profile from '../../components/Profile';
 import CarSelector from '../../components/CarSelector';
 import s from '../../assets/styles/style.css';
 import '../../assets/styles/style-desktop.css';
-import {getIntroduction, sendMessage } from '../../actions';
+import {getIntroduction, sendMessage, evaluateAnswer } from '../../actions';
 
 
 class App extends Component {
@@ -46,6 +46,11 @@ class App extends Component {
 		dispatch(sendMessage(messagetext, userId));
 	}
 
+	handleEvaluateAnswer(evaluation) {
+		const {dispatch} = this.props;
+		dispatch(evaluateAnswer(evaluation));
+	}
+
 	render() {
 		return (
 			<div id="approot" className="approot">
@@ -61,6 +66,7 @@ class App extends Component {
 										introductiontext={this.props.introduction.introductiontext}
 										userId={this.props.introduction.userId}
 										inProgress={this.props.messages.inProgress}
+										evaluateAnswer={(evaluation) => this.handleEvaluateAnswer(evaluation)}
 										/> :
 									<CarSelector />
 						}

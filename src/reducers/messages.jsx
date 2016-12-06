@@ -1,6 +1,6 @@
 import {MESSAGE_SEND, MESSAGE_SEND_PENDING, MESSAGE_RECEIVED,
 	MESSAGE_REJECTED, REMAININGANSWERS_PENDING,
-	REMAININGANSWERS_SENDINSTRUCTION} from '../actions';
+	REMAININGANSWERS_SENDINSTRUCTION, EVALUATE_ANSWER} from '../actions';
 
 const parseMessageText = (answerText) => {
 	var urlRegex = /(https?:\/\/[^\s]+)/g;
@@ -88,6 +88,36 @@ export const messages_reducer = (state = {
 				};
 				return state;
 			}
+			
+		case EVALUATE_ANSWER:
+			if(action.evaluation == "JA")
+			{
+				alert("TODO: relay 'answer is correct' back to database");
+				return null;
+			}
+			else{
+				alert("TODO: relay 'answer is NOT correct' back to database AND show next possible answer");
+				if(state.remaininganswers.length > 1)
+				{
+					var answer = parseMessageText(state.remaininganswers[0]);
+					state.remaininganswers.splice(0);
+					
+					return {
+						...state,
+						messagelist: [
+							...state.messagelist, {
+								text: answer.text,
+								options: answer.hyperlinks,
+								sender: 'bot',
+								timestamp: Date.now()
+							}
+						],
+						inProgress: false,
+						error: false,
+						remaininganswers: remaininganswers
+					};
+				}
+			}			
 
 		case REMAININGANSWERS_SENDINSTRUCTION:
 		return {
@@ -98,8 +128,8 @@ export const messages_reducer = (state = {
 					sender: 'bot',
 					timestamp: Date.now(),
 					options: [
-				    { text: 'Ja', link: '#', type: 'button' },
-				    { text: 'Nee', link: '#', type: 'button' }
+				    { text: 'Ja', link: 'JA', type: 'button' },
+				    { text: 'Nee', link: 'NEE', type: 'button' }
 					]
 				}
 			],
