@@ -2,6 +2,21 @@ import {MESSAGE_SEND, MESSAGE_SEND_PENDING, MESSAGE_RECEIVED,
 	MESSAGE_REJECTED, REMAININGANSWERS_PENDING,
 	REMAININGANSWERS_SENDINSTRUCTION} from '../actions';
 
+const parseMessageText = (answerText) => {
+	var urlRegex = /(https?:\/\/[^\s]+)/g;
+    var newText = answerText.replace(urlRegex, function(url) {
+        return "";
+    });
+	
+	var urls = urlRegex.exec(answerText);
+	var options = urls == null ? null : urls.map(function(url){ return { text: url, link: url, type: "url" }; });
+	
+	return {
+		text: newText,
+		hyperlinks: options
+	};
+}
+
 export const messages_reducer = (state = {
 	messagelist: []
 }, action) => {
@@ -37,11 +52,15 @@ export const messages_reducer = (state = {
 					remaininganswers.push(action.result.answer2);
 					remaininganswers.push(action.result.answer3);
 				};
+				
+				var answer = parseMessageText(action.result.answer0);
+				
 				return {
 					...state,
 					messagelist: [
 						...state.messagelist, {
-							text: action.result.answer0,
+							text: answer.text,
+							options: answer.hyperlinks,
 							sender: 'bot',
 							timestamp: Date.now()
 						}
@@ -79,8 +98,8 @@ export const messages_reducer = (state = {
 					sender: 'bot',
 					timestamp: Date.now(),
 					options: [
-				    { text: 'Yes', link: '#'},
-				    { text: 'No', link: '#'}
+				    { text: 'Ja', link: '#', type: 'button' },
+				    { text: 'Nee', link: '#', type: 'button' }
 					]
 				}
 			],

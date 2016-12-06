@@ -190,8 +190,8 @@ Start Content
 .message-options a, .message-options a:hover{
 	text-decoration: none;	
 	display: inline-block;
-	width: calc(100% - 20px);
-	padding: 10px;
+	width: calc(100% - 30px);
+	padding: 10px 15px;
 }
 
 .avatar-img {
@@ -210,9 +210,13 @@ Start Content
   border-bottom: 1px solid #d6d4d5;
 }
 
-.message-options a {
+.message-options .option a {
   color: #0e9ed3;
-  /*font-weight: bold;*/
+}
+
+.message-options .option.url-option a {
+	text-align: left;
+	word-wrap: break-word;
 }
 
 .message-arrow {
