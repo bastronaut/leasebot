@@ -172,8 +172,26 @@ Start Content
 	line-height: 0.2em;
 }
 
+.message.message-with-options {
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+}
+
 .message p {
     line-height: 1.3em;
+}
+
+.message-options{
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	background: white;
+}
+
+.message-options a, .message-options a:hover{
+	text-decoration: none;	
+	display: inline-block;
+	width: calc(100% - 20px);
+	padding: 10px;
 }
 
 .avatar-img {
@@ -190,7 +208,6 @@ Start Content
 
 .option {
   border-bottom: 1px solid #d6d4d5;
-  padding: 5px;
 }
 
 .message-options a {
@@ -237,6 +254,10 @@ Left styling
 .bot .message-footer {
   width: 160px;
   padding-bottom: 20px;
+}
+
+.bot .message-footer.open{
+	margin-top: -1px;
 }
 
 /*
