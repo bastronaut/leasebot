@@ -2,7 +2,7 @@ import sampledata from '../utils/sampledata';
 import API from '../utils/Api';
 import URLSearchParams from 'url-search-params';
 
-const remaininganswermessage = 'Heeft deze vraag u geholpen?';
+const remaininganswermessage = 'Heeft dit antwoord u geholpen?';
 
 export const GET_INTRODUCTION = 'GET_INTRODUCTION';
 export const getIntroduction = () => {
@@ -161,12 +161,20 @@ export const evaluateAnswer = (evaluation, remainingAnswerCount) => {
 							dispatch(sendRemainingAnswersInstruction());
 							scrollDown();
 						}, 1000);
-					}, 1000);
+					}, 300);
 				}, 1000);				
 			}, 300);
 		}
 		else{
-			dispatch(evaluateAnswerEvaluate(evaluation));
+			setTimeout( () => {
+				dispatch(sendMessagePending());
+				scrollDown();
+				
+				setTimeout( () => {
+					dispatch(evaluateAnswerEvaluate(evaluation));
+					scrollDown();
+				}, 1000);
+			}, 300);
 		}
 	}
 

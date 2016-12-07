@@ -92,8 +92,18 @@ export const messages_reducer = (state = {
 		case EVALUATE_ANSWER:
 			if(action.evaluation == "JA")
 			{
-				alert("TODO: relay 'answer is correct' back to database");
-				return null;
+				return {
+					...state,
+					messagelist: [
+						...state.messagelist, {
+							text: "Goed te horen, heeft u een andere vraag?",
+							sender: 'bot',
+							timestamp: Date.now()
+						}
+					],
+					inProgress: false,
+					error: false
+				};
 			}
 			else{
 				if(state.remaininganswers.length > 0)
@@ -119,7 +129,15 @@ export const messages_reducer = (state = {
 				else{
 					return {
 						...state,
-						inProgress: false
+						messagelist: [
+							...state.messagelist, {
+								text: "Helaas ben ik door mijn antwoorden heen, wellicht heeft u een andere vraag?",
+								sender: 'bot',
+								timestamp: Date.now()
+							}
+						],
+						inProgress: false,
+						error: false
 					};
 				}
 			}			
