@@ -14,7 +14,7 @@ const MessageItem = ({sender, messagetext, msgoptions, evaluateAnswer}) => (
 		</div>
 		<div className={ "message-footer" + (msgoptions ? " open" : "") }>
 			<img src={sender == 'person' ? "img/textright.png" : msgoptions ? "img/text-open.png" : "img/textleft.png" } className="message-arrow"/>
-			<img src={sender == 'person' ? "img/avatar-small.png" : "img/bot icon.png" } className="avatar-img"/>
+			<img src={sender == 'person' ? "img/avatar-small.png" : "img/bot-icon.png" } className="avatar-img"/>
 		</div>
 	</div>
 )

@@ -212,6 +212,7 @@ Start Content
 
 .message-options .option a {
   color: #0e9ed3;
+  cursor: pointer;
 }
 
 .message-options .option.url-option a {
