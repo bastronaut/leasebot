@@ -21,9 +21,9 @@ class App extends Component {
 		console.log('change page: ', newActivePage);
 		
 		if(newActivePage === 0)
-			window.location = "http://localhost:8000/#!/profile"; // TODO HACK
+			window.location = "http://vm-ubuntu-jvdg5111.cloudapp.net:8002/index.html#!/profile"; // TODO HACK
 		else if(newActivePage === 2)
-			window.location = "http://localhost:8000/#!/brands"; // TODO HACK
+			window.location = "http://vm-ubuntu-jvdg5111.cloudapp.net:8002/index.html#!/brands"; // TODO HACK
 		
 		//this.setState({activePage: newActivePage});
 	}
