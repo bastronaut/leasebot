@@ -96,7 +96,7 @@ export const messages_reducer = (state = {
 					...state,
 					messagelist: [
 						...state.messagelist, {
-							text: "Goed te horen, heeft u een andere vraag?",
+							text: "Goed te horen, heb je een andere vraag?",
 							sender: 'bot',
 							timestamp: Date.now()
 						}
@@ -131,7 +131,7 @@ export const messages_reducer = (state = {
 						...state,
 						messagelist: [
 							...state.messagelist, {
-								text: "Helaas ben ik door mijn antwoorden heen, wellicht heeft u een andere vraag?",
+								text: "Helaas ben ik door mijn antwoorden heen, wellicht heb je een andere vraag?",
 								sender: 'bot',
 								timestamp: Date.now()
 							}

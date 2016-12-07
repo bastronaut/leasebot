@@ -2,7 +2,7 @@ import sampledata from '../utils/sampledata';
 import API from '../utils/Api';
 import URLSearchParams from 'url-search-params';
 
-const remaininganswermessage = 'Heeft dit antwoord u geholpen?';
+const remaininganswermessage = 'Heeft dit antwoord je geholpen?';
 
 export const GET_INTRODUCTION = 'GET_INTRODUCTION';
 export const getIntroduction = () => {
