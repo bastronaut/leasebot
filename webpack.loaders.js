@@ -18,6 +18,11 @@ module.exports = [
 		test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
 		exclude: /(node_modules|bower_components)/,
 		loader: "url?limit=10000&mimetype=application/octet-stream"
+	},
+	{
+		test: /\.png/,
+		exclude: /(node_modules|bower_components)/,
+		loader: "url-loader?limit=10000&mimetype=image/png"
 	}
 ];
 
@@ -37,8 +42,4 @@ module.exports = [
 // 	exclude: /(node_modules|bower_components)/,
 // 	loader: "url-loader?limit=10000&mimetype=image/jpg"
 // },
-// {
-// 	test: /\.png/,
-// 	exclude: /(node_modules|bower_components)/,
-// 	loader: "url-loader?limit=10000&mimetype=image/png"
-// }
+// 
