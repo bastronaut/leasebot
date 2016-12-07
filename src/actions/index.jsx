@@ -143,18 +143,31 @@ export const sendRemainingAnswersInstruction = () => {
 
 export const evaluateAnswer = (evaluation, remainingAnswerCount) => {
 	return dispatch => {
-		setTimeout( () => {
-			dispatch(evaluateAnswerEvaluate(evaluation));
-			scrollDown();
-		}, 600);
-			
 		if(evaluation == "NEE" && remainingAnswerCount > 0)
 		{
 			setTimeout( () => {
-				dispatch(sendRemainingAnswersInstruction());
+				dispatch(sendMessagePending());
 				scrollDown();
-			}, 1200);
-		}			
+				
+				setTimeout( () => {
+					dispatch(evaluateAnswerEvaluate(evaluation));
+					scrollDown();
+					
+					setTimeout( () => {
+						dispatch(sendMessagePending());
+						scrollDown();
+						
+						setTimeout( () => {
+							dispatch(sendRemainingAnswersInstruction());
+							scrollDown();
+						}, 1000);
+					}, 1000);
+				}, 1000);				
+			}, 300);
+		}
+		else{
+			dispatch(evaluateAnswerEvaluate(evaluation));
+		}
 	}
 
 }
