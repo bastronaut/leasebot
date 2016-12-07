@@ -46,9 +46,9 @@ class App extends Component {
 		dispatch(sendMessage(messagetext, userId));
 	}
 
-	handleEvaluateAnswer(evaluation) {
+	handleEvaluateAnswer(evaluation, remainingAnswerCount) {
 		const {dispatch} = this.props;
-		dispatch(evaluateAnswer(evaluation));
+		dispatch(evaluateAnswer(evaluation, remainingAnswerCount));
 	}
 
 	render() {
@@ -66,7 +66,7 @@ class App extends Component {
 										introductiontext={this.props.introduction.introductiontext}
 										userId={this.props.introduction.userId}
 										inProgress={this.props.messages.inProgress}
-										evaluateAnswer={(evaluation) => this.handleEvaluateAnswer(evaluation)}
+										evaluateAnswer={(evaluation, remainingAnswerCount) => this.handleEvaluateAnswer(evaluation, remainingAnswerCount)}
 										/> :
 									<CarSelector />
 						}

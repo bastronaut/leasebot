@@ -50,11 +50,12 @@ const introductionRejected = (error) => {
 
 export const sendMessage = (message, userid) => {
 	return dispatch => {
-		dispatch(sendMessageSend(message));
 		setTimeout( () => {
-			dispatch(sendMessagePending())
-		}, 1200);
-
+			dispatch(sendMessagePending());
+			scrollDown();
+		}, 600);
+		dispatch(sendMessageSend(message));
+		
 		var params = new URLSearchParams();
 		params.append('questiontext', message);
 		params.append('userid', userid);
@@ -74,7 +75,7 @@ export const sendMessage = (message, userid) => {
 					dispatch(remainingAnswersPending());
 					scrollDown();
 					setTimeout( () => {
-						dispatch(sendRemainingAnswersInstruction());
+						dispatch(sendRemainingAnswersInstruction(0));
 						scrollDown();
 					}, 1200);
 				}, 600);
@@ -136,18 +137,18 @@ export const REMAININGANSWERS_SENDINSTRUCTION = 'REMAININGANSWERS_SENDINSTRUCTIO
 export const sendRemainingAnswersInstruction = () => {
 	return {
 		type: REMAININGANSWERS_SENDINSTRUCTION,
-		message: remaininganswermessage,
+		message: remaininganswermessage
 	}
 }
 
-export const evaluateAnswer = (evaluation) => {
+export const evaluateAnswer = (evaluation, remainingAnswerCount) => {
 	return dispatch => {
 		setTimeout( () => {
 			dispatch(evaluateAnswerEvaluate(evaluation));
 			scrollDown();
 		}, 600);
 			
-		if(evaluation == "NEE")
+		if(evaluation == "NEE" && remainingAnswerCount > 0)
 		{
 			setTimeout( () => {
 				dispatch(sendRemainingAnswersInstruction());
@@ -160,8 +161,6 @@ export const evaluateAnswer = (evaluation) => {
 
 export const EVALUATE_ANSWER = 'EVALUATE_ANSWER';
 export const evaluateAnswerEvaluate = (evaluation) => {
-	console.log('evaluation:');
-	console.log(evaluation);
 	return {
 		type: EVALUATE_ANSWER,
 		evaluation: evaluation

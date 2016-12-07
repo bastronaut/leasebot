@@ -96,7 +96,7 @@ export const messages_reducer = (state = {
 				return null;
 			}
 			else{
-				if(state.remaininganswers.length >= 1)
+				if(state.remaininganswers.length > 0)
 				{
 					var answer = parseMessageText(state.remaininganswers[0]);
 					state.remaininganswers.shift();
@@ -125,6 +125,9 @@ export const messages_reducer = (state = {
 			}			
 
 		case REMAININGANSWERS_SENDINSTRUCTION:
+		var remainingAnswerCount = typeof(state.remaininganswers) !== "undefined" ?
+			state.remaininganswers.length : 
+			0;
 		return {
 			...state,
 			messagelist: [
@@ -133,9 +136,10 @@ export const messages_reducer = (state = {
 					sender: 'bot',
 					timestamp: Date.now(),
 					options: [
-				    { text: 'Ja', link: 'JA', type: 'button' },
-				    { text: 'Nee', link: 'NEE', type: 'button' }
-					]
+				    { text: 'Ja', link: 'JA', type: 'button', remainingAnswerCount: remainingAnswerCount },
+				    { text: 'Nee', link: 'NEE', type: 'button', remainingAnswerCount: remainingAnswerCount }
+					],
+					
 				}
 			],
 			inProgress: false
