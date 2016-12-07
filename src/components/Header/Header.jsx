@@ -13,7 +13,7 @@ const Header = ({activePage, handleChangePage}) => (
 		{
 			activePage != 0 ?
 				<div className="header-buttons">
-					<a href="#" className={activePage == 2 ? 'selected' : ''} onClick={() =>  handleChangePage(2) }>Selected cars</a>
+					<a href="#" className={activePage == 2 ? 'selected' : ''} onClick={() =>  handleChangePage(2) }>Autoselectie</a>
 					<a href="#" className={activePage == 1 ? 'selected' : ''} onClick={() =>  handleChangePage(1) }>Q&A</a>
 				</div> :
 				null

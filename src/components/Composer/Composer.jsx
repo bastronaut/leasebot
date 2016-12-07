@@ -26,7 +26,7 @@ export default class Footer extends Component {
 					<form onSubmit={this.onSubmitClick.bind(this)}>
 						<div className="inserttext">
 							<input type="textarea" className="inputmessage"
-								name="inputmessage" placeholder="Ask me anything..."
+								name="inputmessage" placeholder="Stel uw vraag..."
 								value={this.state.messagetext ? this.state.messagetext : ''}
 								onChange={this.handleChange} />
 						</div>
