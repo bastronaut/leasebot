@@ -96,11 +96,10 @@ export const messages_reducer = (state = {
 				return null;
 			}
 			else{
-				alert("TODO: relay 'answer is NOT correct' back to database AND show next possible answer");
-				if(state.remaininganswers.length > 1)
+				if(state.remaininganswers.length >= 1)
 				{
 					var answer = parseMessageText(state.remaininganswers[0]);
-					state.remaininganswers.splice(0);
+					state.remaininganswers.shift();
 					
 					return {
 						...state,
@@ -114,7 +113,13 @@ export const messages_reducer = (state = {
 						],
 						inProgress: false,
 						error: false,
-						remaininganswers: remaininganswers
+						remaininganswers: state.remaininganswers
+					};
+				}
+				else{
+					return {
+						...state,
+						inProgress: false
 					};
 				}
 			}			

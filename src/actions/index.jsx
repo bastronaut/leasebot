@@ -140,8 +140,26 @@ export const sendRemainingAnswersInstruction = () => {
 	}
 }
 
-export const EVALUATE_ANSWER = 'EVALUATE_ANSWER';
 export const evaluateAnswer = (evaluation) => {
+	return dispatch => {
+		setTimeout( () => {
+			dispatch(evaluateAnswerEvaluate(evaluation));
+			scrollDown();
+		}, 600);
+			
+		if(evaluation == "NEE")
+		{
+			setTimeout( () => {
+				dispatch(sendRemainingAnswersInstruction());
+				scrollDown();
+			}, 1200);
+		}			
+	}
+
+}
+
+export const EVALUATE_ANSWER = 'EVALUATE_ANSWER';
+export const evaluateAnswerEvaluate = (evaluation) => {
 	console.log('evaluation:');
 	console.log(evaluation);
 	return {

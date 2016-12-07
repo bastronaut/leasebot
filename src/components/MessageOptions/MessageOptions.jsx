@@ -30,7 +30,7 @@ export default class MessageOptions extends Component {
 					<div className={ "option" + (option.type == "url" ? " url-option" : "" ) } key={'msgoption_'+ option.text +'i'}>
 						{	option.type == "url" ?
 								<a href={option.link} target={option.type == "url" ? "_blank" : "" }>{option.text}</a> :
-								<a href="#" onClick={this.props.evaluateAnswer.bind(this, option.link)}>{option.text}</a>
+								<a onClick={this.props.evaluateAnswer.bind(this, option.link)}>{option.text}</a>
 						}
 					</div>
 				)}
