@@ -21,7 +21,35 @@
         <div class="content">
 
           <input type="file" accept="audio/*" capture="microphone" id="recorder">
+
+
+
+
           <audio id="player" controls></audio>
+          <script>
+            var player = document.getElementById('player');
+
+            var handleSuccess = function(stream) {
+              if (window.URL) {
+                player.src = window.URL.createObjectURL(stream);
+              } else {
+                player.src = stream;
+              }
+            };
+
+            navigator.mediaDevices.getUserMedia({ audio: true, video: false })
+                .then(handleSuccess).catch(dontdoit)
+
+          function dontdoit(hi) {
+            console.log('nope');
+            console.log(hi);
+          }
+          </script>
+
+
+
+
+
 
 
         <div class="footer">
@@ -42,7 +70,7 @@
     </div>
 
     <script src="js/jquery.min.js"></script>
-    <script src="js/microphone.js"></script>
+    <!-- <script src="js/microphone.js"></script> -->
 </body>
 
 </html>
