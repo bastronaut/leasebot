@@ -19,15 +19,15 @@ class App extends Component {
 
 	handleChangePage(newActivePage){
 		console.log('change page: ', newActivePage);
-		
+
 		if(newActivePage === 0)
 			window.location = "http://vm-ubuntu-jvdg5111.cloudapp.net:8002/index.html#!/profile"; // TODO HACK
 		else if(newActivePage === 2)
 			window.location = "http://vm-ubuntu-jvdg5111.cloudapp.net:8002/index.html#!/brands"; // TODO HACK
-		
+
 		//this.setState({activePage: newActivePage});
 	}
-	
+
 	static propTypes = {
 		messages: PropTypes.object.isRequired,
 		dispatch: PropTypes.func.isRequired
@@ -55,7 +55,7 @@ class App extends Component {
 		return (
 			<div id="approot" className="approot">
 				<Header activePage={this.state.activePage} handleChangePage={(newPage) => this.handleChangePage(newPage) }/>
-				<div className={ "wrapper" + (this.state.activePage == 1 ? " grey" : "") }>	
+				<div className={ "wrapper" + (this.state.activePage == 1 ? " grey" : "") }>
 					<div className={ "content" + (this.state.activePage == 0 ? " profile-content" : "") }>
 						{
 							this.state.activePage == 0 ?

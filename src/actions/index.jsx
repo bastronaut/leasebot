@@ -2,7 +2,7 @@ import sampledata from '../utils/sampledata';
 import API from '../utils/Api';
 import URLSearchParams from 'url-search-params';
 
-const remaininganswermessage = 'Heeft dit antwoord je geholpen?';
+const remaininganswermessage = 'Heeft dit antwoord u geholpen?';
 
 export const GET_INTRODUCTION = 'GET_INTRODUCTION';
 export const getIntroduction = () => {
@@ -55,7 +55,7 @@ export const sendMessage = (message, userid) => {
 			scrollDown();
 		}, 600);
 		dispatch(sendMessageSend(message));
-		
+
 		var params = new URLSearchParams();
 		params.append('questiontext', message);
 		params.append('userid', userid);
@@ -148,29 +148,30 @@ export const evaluateAnswer = (evaluation, remainingAnswerCount) => {
 			setTimeout( () => {
 				dispatch(sendMessagePending());
 				scrollDown();
-				
+
 				setTimeout( () => {
-					dispatch(evaluateAnswerEvaluate(evaluation));
+					dispatch(evaluateAnswerEvaluate(evaluation, remainingAnswerCount));
 					scrollDown();
-					
+
 					setTimeout( () => {
 						dispatch(sendMessagePending());
 						scrollDown();
-						
+
 						setTimeout( () => {
 							dispatch(sendRemainingAnswersInstruction());
 							scrollDown();
 						}, 1000);
 					}, 300);
-				}, 1000);				
+				}, 1000);
 			}, 300);
 		}
 		else{
 			setTimeout( () => {
 				dispatch(sendMessagePending());
 				scrollDown();
-				
+
 				setTimeout( () => {
+					sendPositiveEvaluation(remainingAnswerCount);
 					dispatch(evaluateAnswerEvaluate(evaluation));
 					scrollDown();
 				}, 1000);
@@ -181,7 +182,7 @@ export const evaluateAnswer = (evaluation, remainingAnswerCount) => {
 }
 
 export const EVALUATE_ANSWER = 'EVALUATE_ANSWER';
-export const evaluateAnswerEvaluate = (evaluation) => {
+export const evaluateAnswerEvaluate = (evaluation, remainingAnswerCount) => {
 	return {
 		type: EVALUATE_ANSWER,
 		evaluation: evaluation
@@ -190,4 +191,21 @@ export const evaluateAnswerEvaluate = (evaluation) => {
 
 const scrollDown = () => {
 	window.scrollTo(0,document.body.scrollHeight);
+}
+
+const sendPositiveEvaluation = (remainingAnswerCount) => {
+	var params = new URLSearchParams();
+	params.append('answer', getSelectedAnswerFromRemainingAnswerCount(remainingAnswerCount));
+	API.post('/response/', params).then(response => {
+		console.log('posted the answer nr to the backend');
+		console.log(response);
+	}
+}
+// very dirty lazy way to get it done. Should be refactored. what happens is:
+// from 4 availab answers if there are 3 remaining, than the 0th (or first)
+// answer was the correct one. If there was only 1 remaining, it was the
+// third out of four.
+const getSelectedAnswerFromRemainingAnswerCount = (remainingAnswerCount) => {
+	remainingAnswerCount = remainingAnswerCount || 3; // default first answer
+	return 3 - remainingAnswerCount;
 }
