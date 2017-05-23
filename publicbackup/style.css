@@ -4,7 +4,7 @@
    License: none (public domain)
 */
 
-html, body, div, span, a, input, p{
+html, body, div, span, a, input, p{	
 	font-family: 'Open Sans', Helvetica !important;
 }
 
@@ -25,11 +25,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 body {
     line-height: 1;
-	background: url('../img/bg.png') no-repeat center center fixed;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
 }
 
 ol, ul {
@@ -82,9 +77,6 @@ p, a, input {
 	width: 100%;
 	max-width: 448px;
 }
-.header.profile-header{
-	height: 80px;
-}
 
 .header-logo{
 	padding-top: 10px;
@@ -99,29 +91,19 @@ p, a, input {
 	margin-right: 8px;
 	width: 35px;
 	border-radius: 50%;
-	cursor: pointer;
-}
-
-.header-back-image{
-	float: left;
-	margin-left: 10px;
-	height: 22px;
-	width: 14px;
-	margin-top: 1px;
-	cursor: pointer;
 }
 
 .header-buttons{
 	margin-top: 15px;
 	height: 30px;
-	width: calc(100% - 40px);
-	padding-left: 20px;
-	padding-right: 20px;
+	width: calc(100% - 30px);
+	padding-left: 15px;
+	padding-right: 15px;
 }
 
 .header-buttons a {
 	width: 50%;
-	float: left;
+	float: left; 
 	font-size: 14px;
 	color: #C3C3C3;
 	text-decoration: none;
@@ -136,7 +118,7 @@ p, a, input {
 
 input {
   border: none;
-  padding: 25px;
+  padding: 30px 25px;
 }
 
 /*
@@ -146,18 +128,12 @@ Start Content
  */
 
 .wrapper {
-    min-height: 100%;
-}
-
-.wrapper.grey{
+    min-height: 100%;    
 	background: #FAF9F9;
 }
 
 .content {
     padding: 135px 20px 100px 20px;
-}
-.content.profile-content{
-	padding-top: 105px;
 }
 
 .message-body {
@@ -172,26 +148,8 @@ Start Content
 	line-height: 0.2em;
 }
 
-.message.message-with-options {
-	border-bottom-left-radius: 0px;
-	border-bottom-right-radius: 0px;
-}
-
 .message p {
     line-height: 1.3em;
-}
-
-.message-options{
-	border-bottom-left-radius: 5px;
-	border-bottom-right-radius: 5px;
-	background: white;
-}
-
-.message-options a, .message-options a:hover{
-	text-decoration: none;
-	display: inline-block;
-	width: calc(100% - 30px);
-	padding: 10px 15px;
 }
 
 .avatar-img {
@@ -208,16 +166,12 @@ Start Content
 
 .option {
   border-bottom: 1px solid #d6d4d5;
+  padding: 5px;
 }
 
-.message-options .option a {
+.message-options a {
   color: #0e9ed3;
-  cursor: pointer;
-}
-
-.message-options .option.url-option a {
-	text-align: left;
-	word-wrap: break-word;
+  /*font-weight: bold;*/
 }
 
 .message-arrow {
@@ -246,7 +200,7 @@ Left styling
 
 .bot .avatar img {
     border: 1px solid #07a3e0;
-
+	
 }
 
 .bot .avatar-img {
@@ -259,10 +213,6 @@ Left styling
 .bot .message-footer {
   width: 160px;
   padding-bottom: 20px;
-}
-
-.bot .message-footer.open{
-	margin-top: -1px;
 }
 
 /*
@@ -358,72 +308,10 @@ Start Footer
 }
 
 .sendicon {
-  padding: 3px 15px 0 0;
+  padding: 0 15px 0 0;
 }
 
 .inputmessage {
   width: 100%;
   color: #A1A1A1;
-  font-size: 1.3em;
-}
-
-/*
-######################
-Profile
-######################
- */
-
- .profile{
-	 font-family: 'Open Sans', Helvetica;
- }
-
-.large-profile-image{
-	background: url('../img/avatar-large.png') center top no-repeat;
-	background-size: 160px;
-	height: 160px;
-}
-
-.profile h1{
-	text-align: center;
-	margin-top: 20px;
-	font-size: 1.6em;
-	font-weight: 100;
-	padding-bottom: 30px;
-	margin-left: -20px;
-	margin-right: -20px;
-}
-
-.profile h1.name{
-	border-bottom: 1px solid #C3C3C3;
-}
-
-.profile h1.profile-header{
-	color: #C3C3C3;
-	margin-top: 30px;
-}
-
-.profile-setting span{
-	height: 25px;
-
-	border-radius: 5px;
-	border-right: none;
-	border-bottom-right-radius: 0px;
-	border-top-right-radius: 0px;
-	padding-left: 40px;
-	padding-top: 8px;
-	display: inline-block;
-	vertical-align: middle;
-}
-
-.profile-setting select{
-	height: 32px;
-	background: linear-gradient(to bottom, #F0F0F0, white);
-	border: 1px solid #D6D5D5;
-	border-radius: 5px;
-	border-left: none;
-	border-bottom-left-radius: 0px;
-	border-top-left-radius: 0px;
-	padding-left: 40px;
-	padding-top: 2px;
-	padding-bottom: 4px;
 }
